@@ -16,7 +16,7 @@ import (
 const ShellToUse = "bash"
 
 type confstr struct {
-	interval int
+	interval time.Duration
 	close_wait_max int
 	service_command string
 	watch_command string
@@ -52,7 +52,8 @@ func (this *confstr) Getconf(c *goconfig.ConfigFile,err error) {
 	if err != nil {
 		log.Panic(err)
 	}
-	this.interval, err = strconv.Atoi(interval_num)
+
+	this.interval, err = time.ParseDuration(interval_num)
 	if err != nil {
 		log.Panic(err)
 	}
@@ -79,7 +80,6 @@ func get_close_wait_num(c string) (num int){
 	for _,i := range a {
 		res := strings.HasPrefix(i,"CLOSE_WAIT")
 		if res {
-				fmt.Println(i)
 				snum := strings.Split(i," ")
 				num,err = strconv.Atoi(fmt.Sprint(snum[1]))
 				break
@@ -93,12 +93,12 @@ func restart_service(c string)  {
 	if err != nil {
 		log.Println(err)
 	}
-	log.Println(sout)
-	log.Println(serr)
+	log.Println("restart service ",sout)
+	log.Println("standerror :",serr)
 }
 
 func main()  {
-	ticker := time.NewTicker(5 * time.Second)
+	ticker := time.NewTicker(conf_vale.interval)
 	var wg  sync.WaitGroup
 
 	wg.Add(1)
@@ -109,7 +109,6 @@ func main()  {
 			select {
 			case <- ticker.C:
 				num := get_close_wait_num(conf_vale.watch_command)
-				fmt.Println(num)
 				if num > conf_vale.close_wait_max {
 					restart_service(conf_vale.service_command)
 				}

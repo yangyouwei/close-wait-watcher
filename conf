@@ -1,7 +1,7 @@
 [main]
-//执行命令的时间间隔
-interval = 5
-//colose_wait 阈值
+#执行命令的时间间隔
+interval = 5s
+#colose_wait 阈值
 close_wait_max = 0
-//重启服务
-service_command = service restart ss
+#重启服务
+service_command = systemctl stop nginx
