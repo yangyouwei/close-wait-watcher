@@ -2,10 +2,12 @@
 #执行命令的时间间隔
 interval = 1s
 #colose_wait 阈值
-close_wait_max = 0
+close_wait_max = 3000
 #重启服务
-service_command = systemctl restart nginx
+service_command = chronyc sources
 #日志开关,true 日志输出到文件，false 日志输出到屏幕
-log = true
+log = false
 #日志位置
 log_file = ./watcher.log
+#service 监听端口。判断服务是否运行。端口不存在则重启服务
+service_port = 5000
