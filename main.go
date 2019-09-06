@@ -2,6 +2,8 @@ package main
 
 import (
 	"bytes"
+	"flag"
+	"path/filepath"
 	"fmt"
 	"github.com/Unknwon/goconfig"
 	"log"
@@ -33,7 +35,19 @@ var Logtofile *log.Logger
 
 
 func init() {
-	cfg, err := goconfig.LoadConfigFile("conf")
+	s := flag.String("conf","./watcher.conf","-c /etc/watcher.conf")
+	flag.Parse()
+
+	if *s == "" {
+		flag.Usage()
+		panic("process exsit!")
+	}
+	c, err := filepath.Abs(*s)
+	if err != nil {
+		panic(err)
+	}
+
+	cfg, err := goconfig.LoadConfigFile(c)
 	if err != nil {
 		log.Println("读取配置文件失败[config.ini]")
 		panic(err)
