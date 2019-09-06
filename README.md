@@ -1,51 +1,21 @@
-# close-wait-watcher
+使用
 
-//执行系统命令
-f, err := exec.LookPath("ls")  
-if err != nil {  
-    fmt.Println(err)  
-}  
-fmt.Println(f) //  /bin/ls  
+    COMMAND -conf /conf/dir/watcher.conf
 
+不指定配置文件，默认寻找当前目录下的watcher.conf 文件
 
-netstat -n | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}'
+配置文件说明
 
-//定时器
-
-
-func main() {
-    ticker := time.NewTicker(5 * time.Second)
-    quit := make(chan int)
-    var wg  sync.WaitGroup
- 
-    wg.Add(1)
-    go func() {
-        defer wg.Done()
-        fmt.Println("child goroutine bootstrap start")
-        for {
-            select {
-                case <- ticker.C:
-                    fmt.Println("ticker .")
-                case <- quit:
-                    fmt.Println("work well .")
-                    ticker.Stop()
-                    return
-            }
-        }
-        fmt.Println("child goroutine bootstrap end")
-    }()
-    time.Sleep(10 * time.Second)
-    quit <- 1
-    wg.Wait()
-}
-
-//CLOSE_WAIT
-
-conf
-
-//secod
-interval=5
-//colose_wait number
-close_wait_max=5000
-//restart service
-service_command="service restart ss"
+    [main]
+    //执行命令的时间间隔
+    interval = 5
+    //colose_wait 阈值
+    close_wait_max = 0
+    //重启服务
+    service_command = service restart ss
+    //service 监听端口。判断服务是否运行。端口不存在则重启服务
+    service_port = 88
+    //日志开关
+    log = true
+    //日志位置
+    log_file = ./watcher.log
