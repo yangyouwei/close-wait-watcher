@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/Unknwon/goconfig"
 	"log"
+	"os"
 	"os/exec"
 	"strconv"
 	"strings"
@@ -20,9 +21,14 @@ type confstr struct {
 	close_wait_max int
 	service_command string
 	watch_command string
+	log bool
+	log_fle string
 }
 
 var conf_vale confstr
+var logFile *os.File
+var Logtofile *log.Logger
+
 
 func init() {
 	cfg, err := goconfig.LoadConfigFile("conf")
@@ -31,6 +37,15 @@ func init() {
 		panic(err)
 	}
 	conf_vale.Getconf(cfg,err)
+	if conf_vale.log {
+		logFile, err = os.OpenFile(conf_vale.log_fle, os.O_WRONLY | os.O_CREATE | os.O_APPEND, 0644)
+		if err != nil {
+			log.Fatal(err)
+		}
+		Logtofile = log.New(logFile, "[watcher] ", log.Ldate|log.Ltime|log.LstdFlags)
+	}else {
+		Logtofile = log.New(os.Stdout, "[watcher] ", log.Ldate|log.Ltime|log.LstdFlags)
+	}
 }
 
 func (this *confstr) Getconf(c *goconfig.ConfigFile,err error) {
@@ -57,6 +72,24 @@ func (this *confstr) Getconf(c *goconfig.ConfigFile,err error) {
 	if err != nil {
 		log.Panic(err)
 	}
+
+        logstr, err := c.GetValue("main","log")
+        if err != nil {
+                log.Panic(err)
+        }
+        this.log = ParseBool(logstr)
+
+        this.log_fle, err = c.GetValue("main","log_file")
+}
+
+func ParseBool(str string) bool {
+        switch str {
+        case "1", "t", "T", "true", "TRUE", "True":
+                return true
+        case "0", "f", "F", "false", "FALSE", "False":
+                return false
+        }
+        return false
 }
 
 func Shellout(command string) (error, string, string) {
@@ -71,30 +104,30 @@ func Shellout(command string) (error, string, string) {
 
 
 
-func get_close_wait_num(c string) (num int){
+func get_close_wait_num(c string,L *log.Logger) (num int){
 	err, sout ,_ := Shellout(c)
 	if err != nil {
-		log.Println(err)
+		L.Println(err)
 	}
 	a := strings.Split(sout,"\n")
 	for _,i := range a {
 		res := strings.HasPrefix(i,"CLOSE_WAIT")
 		if res {
-				snum := strings.Split(i," ")
-				num,err = strconv.Atoi(fmt.Sprint(snum[1]))
-				break
+			snum := strings.Split(i," ")
+			num,err = strconv.Atoi(fmt.Sprint(snum[1]))
+			break
 		}
 	}
 	return num
 }
 
-func restart_service(c string)  {
+func restart_service(c string,L *log.Logger)  {
 	err, sout ,serr := Shellout(c)
 	if err != nil {
-		log.Println(err)
+		L.Println(err)
 	}
-	log.Println("restart service ",sout)
-	log.Println("standerror :",serr)
+	L.Println("restart service \n",sout)
+	L.Println("standerror :",serr)
 }
 
 func main()  {
@@ -102,18 +135,18 @@ func main()  {
 	var wg  sync.WaitGroup
 
 	wg.Add(1)
-	log.Println("service wather start")
-	go func() {
+	Logtofile.Println("service wather start")
+	go func(L *log.Logger) {
 		defer wg.Done()
 		for {
 			select {
 			case <- ticker.C:
-				num := get_close_wait_num(conf_vale.watch_command)
+				num := get_close_wait_num(conf_vale.watch_command,L)
 				if num > conf_vale.close_wait_max {
-					restart_service(conf_vale.service_command)
+					restart_service(conf_vale.service_command,L)
 				}
 			}
 		}
-	}()
+	}(Logtofile)
 	wg.Wait()
 }

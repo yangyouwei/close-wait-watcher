@@ -1,0 +1,161 @@
+[watcher] 2019/09/06 11:29:11 service wather start
+[watcher] 2019/09/06 11:29:12 restart service 
+ 210 Number of sources = 4
+MS Name/IP address         Stratum Poll Reach LastRx Last sample               
+===============================================================================
+^- de-user.deepinid.deepin.>     3  10   377   161  -4946us[-4946us] +/-  189ms
+^- electabuzz.felixc.at          3  10   357   765  +9079us[+8858us] +/-  188ms
+^* 139.199.215.251               2  10   377   763  -4373us[-4595us] +/-   54ms
+^- stratum2-1.ntp.sea03.us.>     2  10   377   552  +1377us[+1377us] +/-  104ms
+
+[watcher] 2019/09/06 11:29:12 standerror : 
+[watcher] 2019/09/06 11:29:13 restart service 
+ 210 Number of sources = 4
+MS Name/IP address         Stratum Poll Reach LastRx Last sample               
+===============================================================================
+^- de-user.deepinid.deepin.>     3  10   377   162  -4946us[-4946us] +/-  189ms
+^- electabuzz.felixc.at          3  10   357   766  +9079us[+8858us] +/-  188ms
+^* 139.199.215.251               2  10   377   764  -4373us[-4595us] +/-   54ms
+^- stratum2-1.ntp.sea03.us.>     2  10   377   553  +1377us[+1377us] +/-  104ms
+
+[watcher] 2019/09/06 11:29:13 standerror : 
+[watcher] 2019/09/06 11:29:14 restart service 
+ 210 Number of sources = 4
+MS Name/IP address         Stratum Poll Reach LastRx Last sample               
+===============================================================================
+^- de-user.deepinid.deepin.>     3  10   377   163  -4946us[-4946us] +/-  189ms
+^- electabuzz.felixc.at          3  10   357   767  +9079us[+8858us] +/-  188ms
+^* 139.199.215.251               2  10   377   765  -4373us[-4595us] +/-   54ms
+^- stratum2-1.ntp.sea03.us.>     2  10   377   554  +1377us[+1377us] +/-  104ms
+
+[watcher] 2019/09/06 11:29:14 standerror : 
+[watcher] 2019/09/06 11:29:15 restart service 
+ 210 Number of sources = 4
+MS Name/IP address         Stratum Poll Reach LastRx Last sample               
+===============================================================================
+^- de-user.deepinid.deepin.>     3  10   377   164  -4946us[-4946us] +/-  189ms
+^- electabuzz.felixc.at          3  10   357   768  +9079us[+8858us] +/-  188ms
+^* 139.199.215.251               2  10   377   766  -4373us[-4595us] +/-   54ms
+^- stratum2-1.ntp.sea03.us.>     2  10   377   555  +1377us[+1377us] +/-  104ms
+
+[watcher] 2019/09/06 11:29:15 standerror : 
+[watcher] 2019/09/06 11:29:16 restart service 
+ 210 Number of sources = 4
+MS Name/IP address         Stratum Poll Reach LastRx Last sample               
+===============================================================================
+^- de-user.deepinid.deepin.>     3  10   377   165  -4946us[-4946us] +/-  189ms
+^- electabuzz.felixc.at          3  10   357   769  +9079us[+8858us] +/-  188ms
+^* 139.199.215.251               2  10   377   767  -4373us[-4595us] +/-   54ms
+^- stratum2-1.ntp.sea03.us.>     2  10   377   556  +1377us[+1377us] +/-  104ms
+
+[watcher] 2019/09/06 11:29:16 standerror : 
+[watcher] 2019/09/06 11:29:17 restart service 
+ 210 Number of sources = 4
+MS Name/IP address         Stratum Poll Reach LastRx Last sample               
+===============================================================================
+^- de-user.deepinid.deepin.>     3  10   377   166  -4946us[-4946us] +/-  189ms
+^- electabuzz.felixc.at          3  10   357   770  +9079us[+8858us] +/-  188ms
+^* 139.199.215.251               2  10   377   768  -4373us[-4595us] +/-   54ms
+^- stratum2-1.ntp.sea03.us.>     2  10   377   557  +1377us[+1377us] +/-  104ms
+
+[watcher] 2019/09/06 11:29:17 standerror : 
+[watcher] 2019/09/06 11:29:18 restart service 
+ 210 Number of sources = 4
+MS Name/IP address         Stratum Poll Reach LastRx Last sample               
+===============================================================================
+^- de-user.deepinid.deepin.>     3  10   377   167  -4946us[-4946us] +/-  189ms
+^- electabuzz.felixc.at          3  10   357   771  +9079us[+8858us] +/-  188ms
+^* 139.199.215.251               2  10   377   769  -4373us[-4595us] +/-   54ms
+^- stratum2-1.ntp.sea03.us.>     2  10   377   558  +1377us[+1377us] +/-  104ms
+
+[watcher] 2019/09/06 11:29:18 standerror : 
+[watcher] 2019/09/06 11:29:19 restart service 
+ 210 Number of sources = 4
+MS Name/IP address         Stratum Poll Reach LastRx Last sample               
+===============================================================================
+^- de-user.deepinid.deepin.>     3  10   377   168  -4946us[-4946us] +/-  189ms
+^- electabuzz.felixc.at          3  10   357   772  +9079us[+8858us] +/-  188ms
+^* 139.199.215.251               2  10   377   770  -4373us[-4595us] +/-   54ms
+^- stratum2-1.ntp.sea03.us.>     2  10   377   559  +1377us[+1377us] +/-  104ms
+
+[watcher] 2019/09/06 11:29:19 standerror : 
+[watcher] 2019/09/06 11:29:20 restart service 
+ 210 Number of sources = 4
+MS Name/IP address         Stratum Poll Reach LastRx Last sample               
+===============================================================================
+^- de-user.deepinid.deepin.>     3  10   377   169  -4946us[-4946us] +/-  189ms
+^- electabuzz.felixc.at          3  10   357   773  +9079us[+8858us] +/-  188ms
+^* 139.199.215.251               2  10   377   771  -4373us[-4595us] +/-   54ms
+^- stratum2-1.ntp.sea03.us.>     2  10   377   560  +1377us[+1377us] +/-  104ms
+
+[watcher] 2019/09/06 11:29:20 standerror : 
+[watcher] 2019/09/06 11:29:22 restart service 
+ 210 Number of sources = 4
+MS Name/IP address         Stratum Poll Reach LastRx Last sample               
+===============================================================================
+^- de-user.deepinid.deepin.>     3  10   377   170  -4946us[-4946us] +/-  189ms
+^- electabuzz.felixc.at          3  10   357   774  +9079us[+8858us] +/-  188ms
+^* 139.199.215.251               2  10   377   772  -4373us[-4595us] +/-   54ms
+^- stratum2-1.ntp.sea03.us.>     2  10   377   562  +1377us[+1377us] +/-  104ms
+
+[watcher] 2019/09/06 11:29:22 standerror : 
+[watcher] 2019/09/06 11:29:22 restart service 
+ 210 Number of sources = 4
+MS Name/IP address         Stratum Poll Reach LastRx Last sample               
+===============================================================================
+^- de-user.deepinid.deepin.>     3  10   377   171  -4946us[-4946us] +/-  189ms
+^- electabuzz.felixc.at          3  10   357   775  +9079us[+8858us] +/-  188ms
+^* 139.199.215.251               2  10   377   773  -4373us[-4595us] +/-   54ms
+^- stratum2-1.ntp.sea03.us.>     2  10   377   562  +1377us[+1377us] +/-  104ms
+
+[watcher] 2019/09/06 11:29:22 standerror : 
+[watcher] 2019/09/06 11:29:23 restart service 
+ 210 Number of sources = 4
+MS Name/IP address         Stratum Poll Reach LastRx Last sample               
+===============================================================================
+^- de-user.deepinid.deepin.>     3  10   377   172  -4946us[-4946us] +/-  189ms
+^- electabuzz.felixc.at          3  10   357   776  +9079us[+8858us] +/-  188ms
+^* 139.199.215.251               2  10   377   774  -4373us[-4595us] +/-   54ms
+^- stratum2-1.ntp.sea03.us.>     2  10   377   563  +1377us[+1377us] +/-  104ms
+
+[watcher] 2019/09/06 11:29:23 standerror : 
+[watcher] 2019/09/06 11:29:24 restart service 
+ 210 Number of sources = 4
+MS Name/IP address         Stratum Poll Reach LastRx Last sample               
+===============================================================================
+^- de-user.deepinid.deepin.>     3  10   377   173  -4946us[-4946us] +/-  189ms
+^- electabuzz.felixc.at          3  10   357   777  +9079us[+8858us] +/-  188ms
+^* 139.199.215.251               2  10   377   775  -4373us[-4595us] +/-   54ms
+^- stratum2-1.ntp.sea03.us.>     2  10   377   564  +1377us[+1377us] +/-  104ms
+
+[watcher] 2019/09/06 11:29:24 standerror : 
+[watcher] 2019/09/06 11:29:25 restart service 
+ 210 Number of sources = 4
+MS Name/IP address         Stratum Poll Reach LastRx Last sample               
+===============================================================================
+^- de-user.deepinid.deepin.>     3  10   377   174  -4946us[-4946us] +/-  189ms
+^- electabuzz.felixc.at          3  10   357   778  +9079us[+8858us] +/-  188ms
+^* 139.199.215.251               2  10   377   776  -4373us[-4595us] +/-   54ms
+^- stratum2-1.ntp.sea03.us.>     2  10   377   565  +1377us[+1377us] +/-  104ms
+
+[watcher] 2019/09/06 11:29:25 standerror : 
+[watcher] 2019/09/06 11:29:26 restart service 
+ 210 Number of sources = 4
+MS Name/IP address         Stratum Poll Reach LastRx Last sample               
+===============================================================================
+^- de-user.deepinid.deepin.>     3  10   377   175  -4946us[-4946us] +/-  189ms
+^- electabuzz.felixc.at          3  10   357   779  +9079us[+8858us] +/-  188ms
+^* 139.199.215.251               2  10   377   777  -4373us[-4595us] +/-   54ms
+^- stratum2-1.ntp.sea03.us.>     2  10   377   566  +1377us[+1377us] +/-  104ms
+
+[watcher] 2019/09/06 11:29:26 standerror : 
+[watcher] 2019/09/06 11:29:27 restart service 
+ 210 Number of sources = 4
+MS Name/IP address         Stratum Poll Reach LastRx Last sample               
+===============================================================================
+^- de-user.deepinid.deepin.>     3  10   377   176  -4946us[-4946us] +/-  189ms
+^- electabuzz.felixc.at          3  10   357   780  +9079us[+8858us] +/-  188ms
+^* 139.199.215.251               2  10   377   778  -4373us[-4595us] +/-   54ms
+^- stratum2-1.ntp.sea03.us.>     2  10   377   567  +1377us[+1377us] +/-  104ms
+
+[watcher] 2019/09/06 11:29:27 standerror : 

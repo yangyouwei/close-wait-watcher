@@ -1,7 +1,11 @@
 [main]
 #执行命令的时间间隔
-interval = 5s
+interval = 1s
 #colose_wait 阈值
 close_wait_max = 0
 #重启服务
-service_command = systemctl stop nginx
+service_command = chronyc sources
+#日志开关
+log = false
+#日志位置
+log_file = ./watcher.log
