@@ -126,8 +126,7 @@ func restart_service(c string,L *log.Logger)  {
 	if err != nil {
 		L.Println(err)
 	}
-	L.Println("restart service \n",sout)
-	L.Println("standerror :",serr)
+	L.Println("restarting service \n","[--standout--]\n",sout,"[--standerr--]\n",serr)
 }
 
 func main()  {
