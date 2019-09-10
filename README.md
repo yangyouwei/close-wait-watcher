@@ -11,7 +11,7 @@
     interval = 5
     //colose_wait 阈值
     close_wait_max = 0
-    //重启服务命令，重启服务的输出如果有标准或错误输出会在日志输出。
+    //重启服务
     service_command = service restart ss
     //service 监听端口。判断服务是否运行。端口不存在则重启服务
     service_port = 88

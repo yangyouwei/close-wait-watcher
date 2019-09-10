@@ -1,13 +1,49 @@
-[watcher] 2019/09/06 11:43:11 service wather start
-[watcher] 2019/09/06 11:43:12 restarting service 
- [--standout--]
-  [--standerr--]
- 
-[watcher] 2019/09/06 11:43:13 restarting service 
- [--standout--]
-  [--standerr--]
- 
-[watcher] 2019/09/06 11:43:14 restarting service 
- [--standout--]
-  [--standerr--]
- 
+[watcher] 2019/09/10 10:30:57 service wather start
+[watcher] 2019/09/10 10:30:58 CLOSE_WAIT:  1
+[watcher] 2019/09/10 10:30:58 service is runing
+[watcher] 2019/09/10 10:30:59 CLOSE_WAIT:  1
+[watcher] 2019/09/10 10:30:59 service is runing
+[watcher] 2019/09/10 10:31:00 CLOSE_WAIT:  1
+[watcher] 2019/09/10 10:31:00 service is runing
+[watcher] 2019/09/10 10:31:01 CLOSE_WAIT:  1
+[watcher] 2019/09/10 10:31:01 service is runing
+[watcher] 2019/09/10 10:31:02 CLOSE_WAIT:  1
+[watcher] 2019/09/10 10:31:02 service is runing
+[watcher] 2019/09/10 10:31:03 CLOSE_WAIT:  1
+[watcher] 2019/09/10 10:31:03 service is runing
+[watcher] 2019/09/10 10:31:04 CLOSE_WAIT:  1
+[watcher] 2019/09/10 10:31:04 service is runing
+[watcher] 2019/09/10 10:31:05 CLOSE_WAIT:  1
+[watcher] 2019/09/10 10:31:05 service is runing
+[watcher] 2019/09/10 10:31:06 CLOSE_WAIT:  1
+[watcher] 2019/09/10 10:31:06 service is runing
+[watcher] 2019/09/10 10:31:07 CLOSE_WAIT:  1
+[watcher] 2019/09/10 10:31:07 service is runing
+[watcher] 2019/09/10 10:31:08 CLOSE_WAIT:  1
+[watcher] 2019/09/10 10:31:08 service is runing
+[watcher] 2019/09/10 10:31:09 CLOSE_WAIT:  1
+[watcher] 2019/09/10 10:31:09 service is runing
+[watcher] 2019/09/10 10:31:10 CLOSE_WAIT:  1
+[watcher] 2019/09/10 10:31:10 service is runing
+[watcher] 2019/09/10 10:31:11 CLOSE_WAIT:  1
+[watcher] 2019/09/10 10:31:11 service is runing
+[watcher] 2019/09/10 10:31:12 CLOSE_WAIT:  1
+[watcher] 2019/09/10 10:31:12 service is runing
+[watcher] 2019/09/10 10:31:13 CLOSE_WAIT:  1
+[watcher] 2019/09/10 10:31:13 service is runing
+[watcher] 2019/09/10 10:31:14 CLOSE_WAIT:  1
+[watcher] 2019/09/10 10:31:14 service is runing
+[watcher] 2019/09/10 10:31:15 CLOSE_WAIT:  1
+[watcher] 2019/09/10 10:31:15 service is runing
+[watcher] 2019/09/10 10:31:16 CLOSE_WAIT:  1
+[watcher] 2019/09/10 10:31:16 service is runing
+[watcher] 2019/09/10 10:31:17 CLOSE_WAIT:  1
+[watcher] 2019/09/10 10:31:17 service is runing
+[watcher] 2019/09/10 10:31:18 CLOSE_WAIT:  1
+[watcher] 2019/09/10 10:31:18 service is runing
+[watcher] 2019/09/10 10:31:19 CLOSE_WAIT:  1
+[watcher] 2019/09/10 10:31:19 service is runing
+[watcher] 2019/09/10 10:31:20 CLOSE_WAIT:  1
+[watcher] 2019/09/10 10:31:20 service is runing
+[watcher] 2019/09/10 10:31:21 CLOSE_WAIT:  1
+[watcher] 2019/09/10 10:31:21 service is runing

@@ -1,15 +1,17 @@
 package main
 
 import (
+	"bufio"
 	"bytes"
 	"flag"
-	"path/filepath"
 	"fmt"
 	"github.com/Unknwon/goconfig"
+	"io"
 	"log"
 	"net"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"strconv"
 	"strings"
 	"sync"
@@ -27,6 +29,7 @@ type confstr struct {
 	log bool
 	log_fle string
 	service_port string
+	service_config string
 }
 
 var conf_vale confstr
@@ -35,6 +38,7 @@ var Logtofile *log.Logger
 
 
 func init() {
+	//支持参数
 	s := flag.String("conf","./watcher.conf","-c /etc/watcher.conf")
 	flag.Parse()
 
@@ -47,21 +51,51 @@ func init() {
 		panic(err)
 	}
 
+	//初始化配置文件
 	cfg, err := goconfig.LoadConfigFile(c)
 	if err != nil {
 		log.Println("读取配置文件失败[config.ini]")
 		panic(err)
 	}
+
+	//解析配置文件
 	conf_vale.Getconf(cfg,err)
+
+	//初始化日志
 	if conf_vale.log {
+		//输出日志到文件
 		logFile, err = os.OpenFile(conf_vale.log_fle, os.O_WRONLY | os.O_CREATE | os.O_APPEND, 0644)
 		if err != nil {
 			log.Fatal(err)
 		}
 		Logtofile = log.New(logFile, "[watcher] ", log.Ldate|log.Ltime|log.LstdFlags)
 	}else {
+		//输出日志到标准输出
 		Logtofile = log.New(os.Stdout, "[watcher] ", log.Ldate|log.Ltime|log.LstdFlags)
 	}
+
+	//判断配置文件是否存在。如果不存在说明没装服务。
+	var serivce_dir = "/home/ss/config.php"
+	dir_bool,err :=  PathExists(serivce_dir)
+	if err != nil {
+		Logtofile.Println(err)
+	}
+
+	if !dir_bool {
+		Logtofile.Println("can't find service config file ,watcher exit.\ncheck service if serivce was installed .")
+		os.Exit(1)
+	}
+}
+
+func PathExists(path string) (bool, error) {
+	_, err := os.Stat(path)
+	if err == nil {
+		return true, nil
+	}
+	if os.IsNotExist(err) {
+		return false, nil
+	}
+	return false, err
 }
 
 func (this *confstr) Getconf(c *goconfig.ConfigFile,err error) {
@@ -97,10 +131,37 @@ func (this *confstr) Getconf(c *goconfig.ConfigFile,err error) {
 
 	this.log_fle, err = c.GetValue("main","log_file")
 
-	this.service_port,err = c.GetValue("main","service_port")
+	this.service_config,err = c.GetValue("main","service_config")
 	if err != nil {
 		Logtofile.Panic(err)
 	}
+
+	this.service_port = readconf(conf_vale.service_config)
+
+}
+
+func readconf(fp string) string {
+	port := ""
+	fi, err := os.Open(fp)
+	if err != nil {
+		fmt.Printf("Error: %s\n", err)
+	}
+	defer fi.Close()
+	br := bufio.NewReader(fi)
+	for  {
+		a, _, c := br.ReadLine()
+		if c == io.EOF {
+			break
+		}
+		portconf_prefix := "$config['port']"
+		if strings.HasPrefix(string(a),portconf_prefix) {
+			b := strings.TrimSpace(string(a))
+			c := strings.Fields(b)
+			d := strings.Split(c[2],"'")
+			port = d[1]
+		}
+	}
+	return port
 }
 
 func ParseBool(str string) bool {
@@ -156,12 +217,12 @@ func restart_service(c string,L *log.Logger)  {
 }
 
 func main()  {
+	Logtofile.Println("service wather start")
 	ticker := time.NewTicker(conf_vale.interval)
 	var wg  sync.WaitGroup
 
 	wg.Add(1)
-	Logtofile.Println("service wather start")
-	go func(L *log.Logger) {
+	go func(L *log.Logger,wg *sync.WaitGroup) {
 		defer wg.Done()
 		for {
 			select {
@@ -181,6 +242,6 @@ func main()  {
 				}
 			}
 		}
-	}(Logtofile)
+	}(Logtofile,&wg)
 	wg.Wait()
 }
